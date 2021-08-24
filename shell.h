@@ -123,7 +123,7 @@ int builder_handling(char **command, int status_er);
 int get_process(void);
 int pids_Son(char *cmd);
 int check_builder(char **command);
-int new_process(const char *filename, char *text_content, char *text_content1);
+int new_process(char *text_content);
 int check_command(char **command, char *input, int counter, char **argv);
 
 /** Environment Functions */

@@ -1,5 +1,5 @@
 shelling_ :
-	gcc -g  -Wall -Werror -Wextra -pedantic -std=gnu89 main.c -o hsh
+	gcc -g  -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o a.out
 
 comp-holb- :
 	gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c -o hsh
@@ -14,7 +14,7 @@ clean :
 	rm -f shelling_ *.o *.gch *.out *hsh
 
 clean_tops :
-	rm -rf *.tmp .*simple_shell_history
+	sudo rm -rf /home/.Process.tmp;sudo rm -rf /home/.simple_shell_history
 
 run :
 	sudo cp hsh /usr/local/sbin; ./hsh

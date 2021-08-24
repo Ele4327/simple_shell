@@ -2,45 +2,38 @@
 
 /**
  * new_process - Append of the new structure Pids_t
- * @filename: File Descriptor
  * @tx_cont: pointer for string for saving in process.tmp
- * @tx_conten:  pointer for next string for saving in process.tmp
  * Return: -1 if this is Failed
 */
 
-int new_process(const char *filename, char *tx_cont, char *tx_conten)
+int new_process(char *tx_cont)
 {
-	int o, w, w2, len = 0, len1 = 0;
+	char *filename = "/home/.Process.tmp";
+	char *tx_conten = "PID Son --> \t\t";
+	ssize_t fd, w, w2;
+	int len = 0, len2 = 0;
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
-
-	if (tx_cont != NULL)
+	fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 00600);
+	if (fd < 0)
+		return (-1);
+	if (tx_cont)
 	{
-		for (len = 0; tx_cont[len];)
+		while (tx_cont[len])
 			len++;
+		while (tx_conten[len2])
+			len2++;
+		w2 = write(fd, tx_conten, len2);
+		w = write(fd, tx_cont, len);
+		if (w < 0 || w2 < 0)
+			return (-1);
 	}
-	if (tx_conten != NULL)
-	{
-		for (len1 = 0; tx_conten[len1];)
-			len1++;
-	}
-
-	o = open(filename, O_WRONLY | O_APPEND);
-	w2 = write(o, tx_conten, len1);
-	w = write(o, tx_cont, len);
-
-	if (o == -1 || w == -1 || w2 == -1)
-		return (-1);
-
-	close(o);
-
-	return (-1);
+	return (1);
 }
 
 /**
  * get_process - Dysplay all process one file
- * @c:parameter unused
  * Return: -1 if this is Failed
 */
 
@@ -51,8 +44,8 @@ int get_process(void)
 	pid_Son_t my_pid;
 	ssize_t _fd_tops, append_pids;
 
-	my_ppid.file = "process.tmp";
-	my_pid.file = "Process.tmp";
+	my_ppid.file = "/home/.Process.tmp";
+	my_pid.file = "/home/Process.tmp";
 	my_ppid.text = "Process Father ----> \t\t\t\t";
 	my_pid.text = "Process son ----> \t\t\t\t";
 	if (!my_ppid.file || !my_pid.file)
@@ -67,7 +60,7 @@ int get_process(void)
 		my_ppid.text_pid = _itoa(my_ppid.pid);
 		if (my_ppid.text_pid != NULL)
 		{
-			new_process(my_ppid.file, my_ppid.text_pid, my_ppid.text);
+			new_process(my_ppid.text_pid);
 		}
 	}
 	my_pid.pid = getpid();
@@ -76,7 +69,7 @@ int get_process(void)
 		my_pid.text_pid = _itoa(my_pid.pid);
 		if (my_pid.text_pid != NULL)
 		{
-			append_pids = new_process(my_pid.file, my_pid.text_pid, my_pid.text);
+			append_pids = new_process(my_pid.text_pid);
 		}
 	}
 
@@ -95,16 +88,13 @@ int get_process(void)
 int pids_Son(char *cmd)
 {
 	pid_Son_t my_pid;
-	ssize_t _fd_tops;
 
-	my_pid.file = "Process.tmp";
+	my_pid.file = "/home/.Process.tmp";
 	my_pid.text = "Process son ----> \t\t\t\t";
 
 	if (cmd == NULL)
-	{
-		perror("Error");
 		return (-1);
-	}
+
 	if (!my_pid.file)
 		return (-1);
 	my_pid.pid = fork();
@@ -116,20 +106,15 @@ int pids_Son(char *cmd)
 	}
 	if (my_pid.pid == 0)
 	{
-
-		_fd_tops = open(my_pid.file, O_CREAT | O_RDWR, 0664);
-		if (_fd_tops == -1)
-			return (-1);
 		my_pid.text_pid = _itoa(my_pid.pid = getpid());
 		if (my_pid.text_pid != NULL)
 		{
-			new_process(my_pid.file, my_pid.text_pid, my_pid.text);
+			new_process(my_pid.text_pid);
 		}
-
 		return (0);
 	}
 
-	return (-1);
+	return (1);
 }
 
 /**
@@ -140,7 +125,7 @@ int pids_Son(char *cmd)
 
 int history(char *input)
 {
-	char *filename = ".simple_shell_history";
+	char *filename = "/home/.simple_shell_history";
 	ssize_t fd, w;
 	int len = 0;
 

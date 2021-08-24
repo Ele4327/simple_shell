@@ -9,12 +9,12 @@
 int check_builder(char **command)
 {
 	const_t func[] = {
-	    {"cd", NULL},
-	    {"env", NULL},
-	    {"help", NULL},
-	    {"echo", NULL},
-	    {"history", NULL},
-	    {NULL, NULL}};
+		{"cd", NULL},
+		{"env", NULL},
+		{"help", NULL},
+		{"echo", NULL},
+		{"history", NULL},
+		{NULL, NULL}};
 
 	int _check = 0;
 

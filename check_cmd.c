@@ -17,6 +17,12 @@ int check_command(char **command, char *input, int counter, char **argv)
 	if (*command == NULL)
 		return (-1);
 	pid = pids_Son(*command);
+	if (pid == -1)
+	{
+		perror("Error");
+		return (-1);
+	}
+
 	if (pid == 0)
 	{
 		if (strncmp(*command, "./", 2) != 0 && strncmp(*command, "/", 1) != 0)
