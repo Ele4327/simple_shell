@@ -82,7 +82,7 @@ int _helper(char **command, __attribute__((unused)) int status_er)
 		if (file_write < 0)
 			return (-1);
 	}
-	_PRINT("\n");
+	_putchar('\n');
 	return (0);
 }
 
