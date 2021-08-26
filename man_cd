@@ -1,0 +1,43 @@
+.TH man 2 "Agosto 14, 2021" "Basic Shell man page"
+.SH NAME
+    Shell
+.SH SYNOPSIS
+.B ./sh_shell \fI("string and preformatted value", variable to convert to format)
+.br
+.B ./sh_shell 
+\fI\, COMMAND \/\fR[\fI\,ARGUMENT\/\fR]...
+.br
+.B ./sh_shell 
+\fI\,OPTION\/\fR
+.SH DESCRIPTION
+.B ./sh_shell ()
+Print to standard output under the control of a preformatted data according to the specifying option.
+
+.I Format
+
+A string that specifies how subsequent arguments are converted for the output which can be specified with the "%" operator.
+
+.SH String format
+.TP
+.BR %c
+conversion input for single character (char).
+.TP
+.B %s
+conversion input for string (char *).
+
+.SH RETURN VALUE
+
+.SH ERRORS
+No known bugs.
+.SH EXAMPLES
+.TP
+.B d, i
+The int argument is converted to signed decimal notation:
+
+    _printf("%d\en", 7);
+
+The output would be 7.
+
+
+.SH AUTHORS
+Juan Duque - Sebastian Garzon - Laura Cadavid 

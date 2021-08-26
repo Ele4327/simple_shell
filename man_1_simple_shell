@@ -1,0 +1,59 @@
+.TH man 2 "Agosto 23, 2021" "Basic Shell man page"
+.SH NAME
+    Shell
+.SH SYNOPSIS
+.B ./hsh
+\fI\, COMMAND \/\fR[\fI\,OPTION\/\fR] [\fI\,FILE\/\fR]...
+.br
+.B ./hsh
+\fI\,OPTION\/\fR
+.SH DESCRIPTION
+.B ./hsh
+(Simple Shell) is an end of proyect of the semester for studing in Holberton School
+where we expore understand and building a working functional basic shell program.
+
+.B Unboxing
+
+The Simple shell is one iteration simplified of a commands line interpreter ,
+similiar to bash.
+
+.I FORMAT [ARGUMENT]...
+.SH OPTIONS
+.B hsh
+operates in both 
+.I interactive 
+and 
+.I non-interactive
+ mode. The user may initiate 
+.B simple shell
+and begin working or initate 
+.B simple shell
+using commands meant to be run by the program.
+.SH ARGUMENTS
+The first argument, argument 0 is understood to be the command to be run by 
+.B simple shell
+and arguments following as modifiers or options.
+.SH INVOCATION
+.B hsh
+may be invoked with the same functionality in 
+.I interactive 
+or 
+.I non-interactive 
+mode.  The user may quit the program by typing "exit", "Ctrl + D",  on the command line.
+When the program quits or a command has been executed, 
+.B simple shell 
+returns with a new prompt: "$ "
+
+.B Example
+.IP
+
+$./hsh
+
+$pwd
+
+.SH ERRORS
+So far some bugs have been found regarding 
+the functionality of the program, this will be solved in the next few days.
+
+.SH AUTHORS
+Juan Duque - Sebastian Garzon - Laura Cadavid 

@@ -1,0 +1,32 @@
+The shell is a command interpreter that acts as a messenger between the user and the core of the system
+
+This shell is modularized in 3 folders:
+simple shell, tests and manuals
+
+In the simple shell we find the system calls, the main file
+ and all the functions used in the shell are declared and defined, each with a purpose.
+
+ In main.c is the PATH that contains a loop that iterates indefinitely, this is the one that receives each command entered by the user.
+ 
+In the make file the alias are defined to compile different types of files, and with different rules:
+
+shelling_ :
+Compile the main file.
+
+comp-holb-:
+Compile the program with some flags requested by holerton, but allowing errors.
+
+comp-holb_:
+Compile the program with the flags requested by holberton.
+
+chown:
+Change permissions from root to user.
+
+clean:
+Delete junk files.
+
+clean_tops:
+Clear history and tmp files.
+
+run:
+Copy the hsh file to sbin and then run it
