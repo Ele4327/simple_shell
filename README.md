@@ -8,13 +8,15 @@ In this repository you will find our own simple shell, developed by software dev
 
 For those who dont know a shell is a program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
 
-For a more specific explanation, we invite you to see our manual: 
+For a more specific explanation, we invite you to see our manual:
 
 > ./man_1_simple_shell
 
 And to see help file:
 
 > ./help
+
+PD: First, you need to have downloaded and cloned the repository and entered the repository folder, in case you don't know how, you can click here: [Installation:](#installation)
 
 # Features
 
