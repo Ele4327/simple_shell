@@ -88,20 +88,28 @@ typedef struct __pids_t
 	pid_Son_t **pid_s;
 } _pids_t;
 
-/**                    PROTOTYPES                    **/
+/**       PROTOTYPES        **/
 
 /** STRING_FUNCTIONS**/
 char *_itoa(int n);
+int _atoi(char *s);
 char **_parsed(char *input);
 int strlenR(char *str, int counter);
+int _strlen(char *s);
 int len(char *str);
 int _strcmp(char *string1, char *string2);
 int _isalpha(int c);
 void print_num_in(int n);
 void print_num(unsigned int n);
 int _putchar(char c);
+void _puts(char *str);
 char *_strtok(char *str, const char *delim);
 unsigned int check_delim(char c, const char *str);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+char *_strchr(char *s, char c);
+char *_strdup(char *str);
+int _strncmp(const char *s1, const char *s2, size_t n);
 
 /** PROMPT_FUNCTIONS**/
 void prompter(void);
@@ -133,6 +141,9 @@ int ch_dir(char **command, int status_err);
 int enviro(char **cmd, int err);
 int path(char **command);
 int _helper(char **command, __attribute__((unused)) int status_er);
+int _setenv(char **command, int status_er);
+
+/** Builders environs */
 char *_getenv(char *name);
 char *builder(char *token, char *token_value);
 int _echo_p(char **cmd);
