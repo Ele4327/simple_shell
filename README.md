@@ -1,4 +1,4 @@
-![](https://github.com/Ele4327/printf/blob/main/img/Header.png)
+
 
 👋 Hello Devs
 # Simple Shell
