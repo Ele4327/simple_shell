@@ -13,14 +13,11 @@ int ch_dir(char **command, __attribute__((unused)) int status_err)
 	char cwd[PATH_MAX];
 
 	if (command[1] == NULL)
-		value = chdir(getenv("HOME"));
-	else if (_strcmp(command[1], "-") == 0)
+		value = chdir(_getenv("HOME"));
+	else if (_strcmp(command[1], "-") == 0 || _strcmp(command[1], "--") == 0)
 	{
-		value = chdir(getenv("OLDPWD"));
+		value = chdir(_getenv("OLDPWD"));
 	}
-	else
-		value = chdir(command[1]);
-
 	if (value == -1)
 	{
 		perror("hsh");
@@ -29,7 +26,7 @@ int ch_dir(char **command, __attribute__((unused)) int status_err)
 	else if (value != -1)
 	{
 		getcwd(cwd, sizeof(cwd));
-		setenv("OLDPWD", getenv("PWD"), 1);
+		setenv("OLDPWD", _getenv("PWD"), 1);
 		setenv("PWD", cwd, 1);
 	}
 	return (0);
@@ -49,7 +46,7 @@ int enviro(__attribute__((unused)) char **cmd, __attribute__((unused)) int err)
 
 	while (environ[i] != NULL)
 	{
-		length = strlen(environ[i]);
+		length = _strlen(environ[i]);
 		write(1, environ[i], length);
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
@@ -97,17 +94,17 @@ int _echo(char **cmd, int st)
 	char *path;
 	unsigned int pid = getppid();
 
-	if (strncmp(cmd[1], "$?", 2) == 0)
+	if (_strncmp(cmd[1], "$?", 2) == 0)
 	{
 		print_num_in(st);
 		_PRINT("\n");
 	}
-	else if (strncmp(cmd[1], "$$", 2) == 0)
+	else if (_strncmp(cmd[1], "$$", 2) == 0)
 	{
 		print_num(pid);
 		_PRINT("\n");
 	}
-	else if (strncmp(cmd[1], "$PATH", 5) == 0)
+	else if (_strncmp(cmd[1], "$PATH", 5) == 0)
 	{
 		path = _getenv("PATH");
 		_PRINT(path);
