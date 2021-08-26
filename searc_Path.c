@@ -51,7 +51,7 @@ int path(char **command)
 {
 	char *path_command;
 	char *path = _getenv("PATH");
-	char *tokenizado = strtok(path, ":");
+	char *tokenizado = _strtok(path, ":");
 	struct stat buffer;
 
 	while (tokenizado != NULL)
@@ -65,7 +65,7 @@ int path(char **command)
 			return (0);
 		}
 		free(path_command);
-		tokenizado = strtok(NULL, ":");
+		tokenizado = _strtok(NULL, ":");
 	}
 	free(path);
 

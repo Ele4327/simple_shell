@@ -26,4 +26,7 @@ shellingR :
 	./_shelling
 
 valgrind :
+	echo "/bin/ls" | valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./hsh
+
+valgrind2:
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./hsh

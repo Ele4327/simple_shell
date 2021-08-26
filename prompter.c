@@ -98,7 +98,7 @@ int _echo_p(char **cmd)
 	pid_t pid;
 	int status;
 
-	pid = fork();
+	pid = pids_Son(*cmd);
 	if (pid == 0)
 	{
 		if (execve("/bin/echo", cmd, environ) == -1)

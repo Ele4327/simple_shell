@@ -100,6 +100,8 @@ int _isalpha(int c);
 void print_num_in(int n);
 void print_num(unsigned int n);
 int _putchar(char c);
+char *_strtok(char *str, const char *delim);
+unsigned int check_delim(char c, const char *str);
 
 /** PROMPT_FUNCTIONS**/
 void prompter(void);
