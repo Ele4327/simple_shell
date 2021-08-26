@@ -1,5 +1,5 @@
 shelling_ :
-	gcc -g  -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o a.out
+	gcc -g  -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 comp-holb- :
 	gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c -o hsh
