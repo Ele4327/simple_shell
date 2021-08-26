@@ -8,7 +8,13 @@ In this repository you will find our own simple shell, developed by software dev
 
 For those who dont know a shell is a program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
 
-For a more specific explanation, we invite you to see our manual: man_1_simple_shell
+For a more specific explanation, we invite you to see our manual: 
+
+> man_1_simple_shell
+
+And to see help file:
+
+> help
 
 # Features
 
@@ -72,6 +78,7 @@ List of allowed functions and system calls:
       * [Contribuitors](#contribuitors)
       * [Languages and Tools:](#languages-and-tools)
 
+================================================================
 ## Output
 
 Your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
@@ -96,10 +103,13 @@ $ echo "qwerty" | ./././hsh
 ./././hsh: 1: qwerty: not found
 $
 ```
+
+================================================================
 ## Installation:
 
 There is two ways: Compilation and Execution and Make
 
+================================================================
 ### Compilation and Execution:
 
 Clone our repository:
@@ -114,6 +124,7 @@ Once you have done this, go to the folder that is created, and just type:
 
 And that´s pretty much all, use the shell, like the standard shell.
 
+================================================================
 ### Make:
 
 We know we told you that the code are compiled with gcc, but, if you dont have that
@@ -149,14 +160,18 @@ To execute, if you miss that too:
 
 And play and enjoy.
 
+================================================================
 # How this works:
+================================================================
 
+================================================================
 ## Main Functions
 
 Our main function is:
 
 > init_shell.c
 
+================================================================
 ## Subfunctions
 
 | Function  | Description |
@@ -175,10 +190,12 @@ Our main function is:
 | `searc_Path.c` | PATH Search Engine |
 | `strings.c` | String Management |
 
+================================================================
 ## FlowChart:
 
 ![](https://github.com/Ele4327/simple_shell/blob/main/RECURSES/Basic_Shell_Flowchart.png)
 
+================================================================
 ## Tests
 
 Your shell should work like this in interactive mode:
@@ -222,18 +239,9 @@ $
 <p align="left"> <a href="https://www.gnu.org/software/bash/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> </p>
 
 
+================================================================
 ##### Thanks for your attention, feel free to contribute to the project or contact us if you need something
 
 ![](https://github.com/Ele4327/printf/blob/main/img/holb_logo.png)
 
 ### End
-
-
-
-
-
-
-
-Message Sebastian Garzón:meow_party:
-
-
