@@ -10,11 +10,11 @@ For those who dont know a shell is a program that presents a command line interf
 
 For a more specific explanation, we invite you to see our manual: 
 
-> man_1_simple_shell
+> ./man_1_simple_shell
 
 And to see help file:
 
-> help
+> ./help
 
 # Features
 
