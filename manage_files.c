@@ -16,7 +16,7 @@ void manage_file(char *buff, int counter, FILE *fd, char **argv)
 
 	command = _parsed(buff);
 
-	if (strncmp(command[0], "exit", 4) == 0)
+	if (_strncmp(command[0], "exit", 4) == 0)
 	{
 		Exit_Shell(command, buff, fd);
 	}
@@ -28,7 +28,6 @@ void manage_file(char *buff, int counter, FILE *fd, char **argv)
 	else
 	{
 		status = check_command(command, buff, counter, argv);
-
 		free(command);
 	}
 }
@@ -48,7 +47,7 @@ void _read(char *filename, char **argv)
 	int counter = 0;
 
 	fp = fopen(filename, "r");
-	if (!fp)
+	if (fp != NULL)
 	{
 		while ((getline(&line, &len, fp)) != -1)
 		{

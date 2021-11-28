@@ -13,11 +13,14 @@ int ch_dir(char **command, __attribute__((unused)) int status_err)
 	char cwd[PATH_MAX];
 
 	if (command[1] == NULL)
-		value = chdir(_getenv("HOME"));
-	else if (_strcmp(command[1], "-") == 0 || _strcmp(command[1], "--") == 0)
+		value = chdir(getenv("HOME"));
+	else if (_strcmp(command[1], "-") == 0)
 	{
-		value = chdir(_getenv("OLDPWD"));
+		value = chdir(getenv("OLDPWD"));
 	}
+	else
+		value = chdir(command[1]);
+
 	if (value == -1)
 	{
 		perror("hsh");
@@ -26,12 +29,11 @@ int ch_dir(char **command, __attribute__((unused)) int status_err)
 	else if (value != -1)
 	{
 		getcwd(cwd, sizeof(cwd));
-		setenv("OLDPWD", _getenv("PWD"), 1);
+		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", cwd, 1);
 	}
 	return (0);
 }
-
 /**
  * enviro -  Dysplay Environment
  * @cmd: Line of the commmand Parsed.
